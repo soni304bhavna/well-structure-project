@@ -1,6 +1,10 @@
 import React from 'react';
 
 const MealList = ({ meals, deleteMeal }) => {
+
+
+
+  
   return (
     <div className="mt-6 bg-white p-6 rounded shadow-md w-full max-w-lg mx-auto">
       <h2 className="text-2xl font-bold mb-4">Meal List</h2>

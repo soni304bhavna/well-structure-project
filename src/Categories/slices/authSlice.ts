@@ -7,7 +7,9 @@ export const authSlice = ApiSlice.injectEndpoints({
         url: "category/add-category",
         method: "POST",
         body,
+
       }),
+      invalidatesTags:["category"]
     }),
     ListingCategory: builder.query({
       query: () => ({
@@ -15,6 +17,7 @@ export const authSlice = ApiSlice.injectEndpoints({
         // method:'GET',
         // body
       }),
+      providesTags:["category","edit","delete"]
     }),
     EditCategory: builder.mutation({
       query: ({ id, data }) => ({
@@ -22,6 +25,7 @@ export const authSlice = ApiSlice.injectEndpoints({
         method: "PATCH",
         body: data,
       }),
+      invalidatesTags:["edit"]
     }),
     CategoryById: builder.query({
       query: (id ) => ({
@@ -35,7 +39,11 @@ export const authSlice = ApiSlice.injectEndpoints({
         url: `category/delete-category/${id}`,
         method: "DELETE",
       }),
+      invalidatesTags:["delete"]
     }),
+
+
+    
   }),
 });
 

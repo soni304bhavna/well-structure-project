@@ -1,11 +1,12 @@
 import React from "react";
 
 type Props = {
-    id: any
+  id: any;
   name: string;
   checked: any;
   onChange: (e: any) => void;
   className?: string;
+  label: string;
 };
 
 const ATMCheckBox = ({
@@ -14,32 +15,23 @@ const ATMCheckBox = ({
   checked,
   onChange,
   className,
+  label,
 }: Props) => {
   return (
     <>
-    <h3 className="font-semibold">Select Meal Type:</h3>
-       <div className="flex items-center mb-2">
-         <input
-           type={"checkbox"}
-           id={id}
-           name={name}
-           checked={checked}
-           onChange={onChange}
-           className={`${className}`}
-         />
-         </div>
+      <div className="flex items-center mb-2">
+        <input
+          type="checkbox"
+          id={id}
+          name={name}
+          // checked={checked}
+          // onChange={onChange}
+        />
+        {label && (
+          <label className="font-bold text-blue-950 font-mono">{label}</label>
+        )}
+      </div>
     </>
-    // <div className="flex flex-col space-y-2">
-    //   {label && <label className="font-bold text-blue-950 font-mono">{label}</label>}
-    //   <input
-    //     type="checkbox"
-    //     name={name}
-    //     value={value}
-    //     placeholder={placeholder}
-    //     onChange={onChange}
-    //     className={`p-2 border rounded border-gray-400 ${className}`}
-    //   />
-    // </div>
   );
 };
 

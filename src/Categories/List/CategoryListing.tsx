@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CategoryTableLayout from "../Layouts/CategoryTableLayout.tsx";
-
+import { CiEdit } from "react-icons/ci";
+import { AiOutlineDelete } from "react-icons/ai";
 type Props = {
   data: any;
   isLoading: boolean;
@@ -17,21 +18,28 @@ const CategoryListing = ({ data, handleEdit, handleDelete }: Props) => {
 
   useEffect(() => {
     if (data) {
-      const extractedData = data.data.map((item: any) => ({
+      const extractedData = data?.data?.slice().reverse().map((item: any) => ({
         categoryName: item.categoryName,
         actions: (
           <div className="flex space-x-2">
+            
+
             <button
-              className="bg-blue-500 text-white px-3 py-1 rounded"
+              className="bg-blue-600 text-white px-3 py-1 rounded"
               onClick={() => handleEdit(item._id)} // Assuming you have an id or similar
             >
-              Edit
+             <CiEdit />
             </button>
             <button
-              className="bg-red-500 text-white px-3 py-1 rounded"
-              onClick={() => handleDelete(item._id)} // Assuming you have an id or similar
+              className="bg-red-600 text-white px-3 py-1 rounded"
+              onClick={() =>{
+                if (confirm("Press a button!") == true) {
+                  handleDelete(item._id)
+                } 
+              }} // Assuming you have an id or similar
             >
-              Delete
+             <AiOutlineDelete />
+
             </button>
           </div>
         ),

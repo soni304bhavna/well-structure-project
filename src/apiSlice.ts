@@ -5,8 +5,9 @@ import { fetchBaseQuery } from "@reduxjs/toolkit/query/react";
     reducerPath: 'apiSlice',
     
     baseQuery: fetchBaseQuery({
-    baseUrl: "http://192.168.1.21:3005",
+    baseUrl: "http://localhost:3000",
   }),
+  tagTypes:["edit","delete","category"],
   endpoints:(builder) =>({
     
   })

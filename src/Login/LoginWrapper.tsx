@@ -1,4 +1,3 @@
-import React from 'react';
 import Login from './Login.tsx';
 import { Formik ,Form } from 'formik';
 import {object, string} from "yup"
@@ -15,15 +14,16 @@ const  navigate = useNavigate();
 
     const handleSubmit=async(values:any,)=>{
         login(values).then((res)=>{
-          const token = res.data.data.token;
+          const token = res.data?.data?.token;
           const status = res.data.status;
             if(token&&status){
                console.log("OK");
                navigate('/categories/listing')
+            }else{
+                const issue=res.data.issue;
+                console.log(`${issue}`);
             }
-            // console.log(res);
-            // console.log(res.data);
-            // console.log(res.data.data);
+            
            
         }) 
     }
@@ -37,6 +37,7 @@ return(
     <Formik initialValues={initialValues} 
     validationSchema={validationSchema} 
     onSubmit={handleSubmit} 
+
     // resetForm
     >
         {

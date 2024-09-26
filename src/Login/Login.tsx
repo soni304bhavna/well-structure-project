@@ -9,7 +9,7 @@ type Props = {
 
 const Login = ({formikProps}:Props) => {
 
-    const {values,setFieldValue,isSubmitting,resetForm}=formikProps
+    const {values,setFieldValue,isSubmitting,resetForm,issue}=formikProps
 
     
     
@@ -43,6 +43,7 @@ const Login = ({formikProps}:Props) => {
              className='p-2 bg-blue-950 font-mono text-white'
              />
         </div>
+
         </div>
     );
 }

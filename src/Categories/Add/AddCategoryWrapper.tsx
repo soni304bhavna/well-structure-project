@@ -3,9 +3,11 @@ import CategogyFormLayouts from '../Layouts/CategoryFormLayouts.tsx';
 import { Formik ,Form } from 'formik';
 import {object, string} from "yup"
 import { useAddCategoryMutation } from '../slices/authSlice.ts';
+import { useNavigate } from 'react-router-dom';
 
 const AddCategoryWrapper = () => {
     const [AddCategory]=useAddCategoryMutation();
+    const navigate = useNavigate();
     const initialValues = {
         categoryName:"",
         // cal:""
@@ -17,7 +19,7 @@ const AddCategoryWrapper = () => {
 
     const handleSubmit=async(values:any,)=>{
         AddCategory(values).then((res)=>{
-
+            navigate("/categories/listing")
            console.log(res);
         }) 
     }

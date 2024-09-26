@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import MealForm from "../AddMeal/MealForm";
-import MealList from "../AddMeal/MealList";
-import NutritionalSummary from "../AddMeal/NutritionalSummary";
+import MealFormWrapper from "./MealFormWrapper";
+import MealListWrapper from "./MealListWrapper";
+import NutritionalSummaryWrapper from "./NutritionalSummaryWrapper";
 import "react-calendar/dist/Calendar.css"; // Import the calendar CSS for default styling
 
 const AddMeal = () => {
@@ -21,9 +21,9 @@ const AddMeal = () => {
       
     <div className="mt-6 bg-white p-6 rounded shadow-md flex gap-10">
       
-      <div className="w-[300px]"><NutritionalSummary meals={meals} /></div>
-      <div className="w-[600px]"><MealForm addMeal={addMeal} /></div>
-      <div className="w-[300px]"><MealList meals={meals} deleteMeal={deleteMeal} /></div>
+      <div className="w-[300px]"><NutritionalSummaryWrapper meals={meals} /></div>
+      <div className="w-[600px]"><MealFormWrapper addMeal={addMeal} /></div>
+      <div className="w-[300px]"><MealListWrapper meals={meals} deleteMeal={deleteMeal} /></div>
     </div>
     </div>
   );

@@ -11,7 +11,7 @@ type Props = {
 
 const ATMSubmitButton = ({ className }: Props) => {
   return (
-    <div className="flex flex-col space-y-2">
+    <div className="space-y-2">
       <button type="submit" className={`${className} `}>
         Submit
       </button>
